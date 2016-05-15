@@ -24,6 +24,72 @@ block page-content
         h1.toc-exempt {{ title }}
     {{/recommended_products}}
 
+  h2 {{ 66-recipes }}
+  p {{ 93-thinking-about-wh }}
+  div(data-anchor-image="breakfast")
+    +img(6, "image_bleed")
+  p(data-anchor-label="breakfast")
+    +link(26)
+    span {{ 2-from-food-dot-com }}
+
+  div(data-anchor-menu="breakfast")
+    h3 {{ 92-breakfast }}
+    ul.unstyled
+      - var n = 27
+      while n < 42
+        li
+          +link(n++)
+
+  div(data-anchor-image="lunch")
+    +img(7, "image_bleed")
+  p(data-anchor-label="lunch")
+    +link(42)
+    span {{ 2-from-tastebook }}
+
+  div(data-anchor-menu="lunch")
+    h3 {{ 19-lunch }}
+    ul.unstyled
+      - var n = 43
+      while n < 55
+        li
+          +link(n++)
+
+  div(data-anchor-image="dinner")
+    +img(8, "image_bleed")
+  p(data-anchor-label="dinner")
+    +link(55)
+    span {{ 2-from-babble }}
+
+  div(data-anchor-menu="dinner")
+    h3 {{ 17-dinner }}
+    ul.unstyled
+      - var n = 56
+      while n < 69
+        li
+          +link(n++)
+
+  div(data-anchor-image="sweets")
+    +img(9, "image_bleed")
+  p(data-anchor-label="sweets")
+    +link(72)
+    span {{ 2-from-cookthink }}
+
+  div(data-anchor-menu="sweets")
+    h3 {{ 95-snacks-and-sweets }}
+    ul.unstyled
+      - var n = 73
+      while n < 86
+        li
+          +link(n++)
+
+  h2 {{ 42-food-blogs }}
+  ul.unstyled
+    - var n = 87
+    while n < 107
+      li
+        +link(n++)
+
+
   h2 {{ 72-about-the-vegan-d }}
   p {{ 64-a-vegan-diet-is-o }}
   p {{ 38-eating-vegan-does }}
@@ -185,74 +251,9 @@ block page-content
   h4.toc-exempt {{ vegetable-oil }}
   p {{ 15-strongvegetable-o }}
 
-  h2 {{ 66-recipes }}
-  p {{ 93-thinking-about-wh }}
-  div(data-anchor-image="breakfast")
-    +img(6, "image_bleed")
-  p(data-anchor-label="breakfast")
-    +link(26)
-    span {{ 2-from-food-dot-com }}
-
-  div(data-anchor-menu="breakfast")
-    h3 {{ 92-breakfast }}
-    ul.unstyled
-      - var n = 27
-      while n < 42
-        li
-          +link(n++)
-
-  div(data-anchor-image="lunch")
-    +img(7, "image_bleed")
-  p(data-anchor-label="lunch")
-    +link(42)
-    span {{ 2-from-tastebook }}
-
-  div(data-anchor-menu="lunch")
-    h3 {{ 19-lunch }}
-    ul.unstyled
-      - var n = 43
-      while n < 55
-        li
-          +link(n++)
-
-  div(data-anchor-image="dinner")
-    +img(8, "image_bleed")
-  p(data-anchor-label="dinner")
-    +link(55)
-    span {{ 2-from-babble }}
-
-  div(data-anchor-menu="dinner")
-    h3 {{ 17-dinner }}
-    ul.unstyled
-      - var n = 56
-      while n < 69
-        li
-          +link(n++)
-
-  div(data-anchor-image="sweets")
-    +img(9, "image_bleed")
-  p(data-anchor-label="sweets")
-    +link(72)
-    span {{ 2-from-cookthink }}
-
-  div(data-anchor-menu="sweets")
-    h3 {{ 95-snacks-and-sweets }}
-    ul.unstyled
-      - var n = 73
-      while n < 86
-        li
-          +link(n++)
-
-  h2 {{ 42-food-blogs }}
-  ul.unstyled
-    - var n = 87
-    while n < 107
-      li
-        +link(n++)
-
   h2 {{ 37-cookbooks }}
   p
-    |  {{ more-cookbooks-available }} 
+    |  {{ more-cookbooks-available }}
     a(href="http://vegan.fm") Vegan.fm
 
   div(data-component="image_module")
@@ -439,7 +440,7 @@ block sidebar-content
     h1 {{ 98-forks-over-knives }}
     p {{ 23-this-documentary }}
 
-  article(data-component="video_box")
+  article.adjust(data-component="video_box")
     +vid-img(1)
     h1 {{ 46-what-makes-you-si }}
     p {{ 31-vegan-doctor-and }}
