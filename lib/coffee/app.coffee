@@ -15,6 +15,8 @@ document.addEventListener 'DOMContentLoaded', ->
 
   # locale redirect
   k$.locale = getLang().substr(0, 2)
+  k$.bypass_google_analytics = false
   k$.redirect_locale = (page) ->
     if k$.locale == "pt" or k$.locale == "sv" or k$.locale == "ro" or k$.locale == "es"
+      k$.bypass_google_analytics = true
       location.href = "http://legacy.vegankit.com/#{page}"
