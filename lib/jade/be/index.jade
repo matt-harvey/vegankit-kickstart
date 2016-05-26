@@ -36,7 +36,7 @@ block page-content
   p {{ veganism_is_actually_easy }}&nbsp;
     +link(2)
   p {{ if_youre_not_a_fan_of_recipes }}
-  p 
+  p
     +link(3)
   h2 {{ what_about_my_nonvegan }}
   p {{ what_should_we_do_about }}
@@ -66,13 +66,13 @@ block page-content
       +link(6)
       br
       {{ vegan_couple_lucas }}
-  
+
   h2 {{ recommended_reading }}
   ul.unstyled
     li(data-component="image_module")
       +img(2)
       article
-        h1.toc-exempt 
+        h1.toc-exempt
           +link(7)
         h2.toc-exempt {{ by_gary_francione_and_anna }}
         blockquote
@@ -81,7 +81,7 @@ block page-content
     li(data-component="image_module")
       +img(3)
       article
-        h1.toc-exempt 
+        h1.toc-exempt
           +link(8)
         h2.toc-exempt {{ by_brenda_davis_and }}
         blockquote
@@ -128,6 +128,13 @@ block page-content
 
 block sidebar-content
   | {{#be}}
+  article(data-component="video_box")
+    a(href="{{ links.15.href }}")
+      +img(10)
+    h1 {{ find-recipes }}
+    p
+      +link(15)
+
   article(data-component="video_box")
     +vid-img(0)
     h1 {{ watch-our-cartoon-ve }}

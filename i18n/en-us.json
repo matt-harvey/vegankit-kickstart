@@ -234,7 +234,8 @@
       "itar",
       "unbelievablycutelittlebunny",
       "michael",
-      "lucas"
+      "lucas",
+      "veganfmlogo"
     ],
     "links": [
       {
@@ -296,6 +297,10 @@
       {
         "href": "https://fftradio.wordpress.com/",
         "title": "Host of Food For Thought Radio"
+      },
+      {
+        "title": "Make something vegan tonight",
+        "href": "http://www.vegan.fm"
       }
     ],
     "videos": [
@@ -370,7 +375,8 @@
     "michaels-fight": "Michael's Fight to Live",
     "read-about-michaels": "Read about Michael's will to live after arriving at Peaceful Prairie Sanctuary.",
     "lucas-the-pig": "Lucas the Pig",
-    "read-about-lucass-un": "Read about Lucas's unrequited love."
+    "read-about-lucass-un": "Read about Lucas's unrequited love.",
+    "find-recipes": "Find Recipes"
   },
   "eat": {
     "recommended_products": [
