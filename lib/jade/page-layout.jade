@@ -20,6 +20,16 @@ block content
     aside.sidebar-content
       block sidebar-content
 
+      article.twitter-ad(data-component="video_box")
+        - var butterfly = fs.readFileSync('lib/img/butterfly.svg')
+        != butterfly
+        <a href="https://twitter.com/vegankitdotcom" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @vegankitdotcom</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        h1 Follow VeganKit on Twitter
+        p Vegan news, recipes, photos, and more tweeted every day
+
+
+
   footer.main
     .wrapper
       ul
@@ -45,4 +55,3 @@ mixin dollar(lower, upper)
     while n < upper
       | $
       - n++
-
