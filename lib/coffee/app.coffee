@@ -5,6 +5,7 @@ navbarToggle = require './navbarToggle'
 smoothTOCer  = require './smoothTOCer'
 getLang      = require './localeDetect'
 killCounter  = require '../js/killCounter'
+activists    = require './activists'
 
 document.addEventListener 'DOMContentLoaded', ->
   videoLoader()
@@ -12,6 +13,7 @@ document.addEventListener 'DOMContentLoaded', ->
   killCounter()
   navbarToggle()
   smoothTOCer(k$.$('#toc'), k$.$('.page-content'))
+  activists()
 
   # locale redirect
   k$.locale = getLang().substr(0, 2)
