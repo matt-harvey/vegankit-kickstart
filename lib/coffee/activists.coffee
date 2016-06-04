@@ -21,6 +21,12 @@ activists = ->
     }`
     query_string
 
+  writeScore = (database, ip) ->
+    referralKey = database.ref('activists/' + activist).child('referrals').push().key
+    updates = {}
+    updates['/referrals/' + referralKey] = ip
+    database.ref('activists/' + activist).update(updates)
+
   setScore = (ip) ->
     console.debug("Checking for existing data")
     alreadyRecorded = false
@@ -31,14 +37,10 @@ activists = ->
       records = snapshot.val()
       for index, savedIp of records
         alreadyRecorded = true if savedIp == ip
-
-      if (alreadyRecorded)
+      if alreadyRecorded
         console.debug("Referral already recorded")
-      else
-        referralKey = database.ref('activists/' + activist).child('referrals').push().key
-        updates = {}
-        updates['/referrals/' + referralKey] = ip
-        database.ref('activists/' + activist).update(updates)
+      else if !snapshot.val()
+        writeScore database, ip
 
   getIP = (onNewIP) ->
     ipIterate = (ip) ->
