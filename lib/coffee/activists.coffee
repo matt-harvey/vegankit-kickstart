@@ -1,4 +1,6 @@
 activists = ->
+  activist = ""
+
   QueryString = ->
     query_string = {}
     query = window.location.search.substring(1)
@@ -17,9 +19,68 @@ activists = ->
         query_string[pair[0]].push(decodeURIComponent(pair[1]));
       }
     }`
-    return query_string
+    query_string
+
+  setScore = (ip) ->
+    console.debug("Checking for existing data")
+    alreadyRecorded = false
+    return console.error "Could not retrieve IP" if !ip
+    database = firebase.database()
+
+    database.ref('activists/' + activist + '/referrals').on 'value', (snapshot) ->
+      records = snapshot.val()
+      for index, savedIp of records
+        alreadyRecorded = true if savedIp == ip
+
+      if (alreadyRecorded)
+        console.debug("Referral already recorded")
+      else
+        referralKey = database.ref('activists/' + activist).child('referrals').push().key
+        updates = {}
+        updates['/referrals/' + referralKey] = ip
+        database.ref('activists/' + activist).update(updates)
+
+  getIP = (onNewIP) ->
+    ipIterate = (ip) ->
+      if !localIPs[ip]
+        onNewIP ip
+      localIPs[ip] = true
+      return
+
+    console.log 'getting ip'
+    myPeerConnection = window.RTCPeerConnection or window.mozRTCPeerConnection or window.webkitRTCPeerConnection
+    #compatibility for firefox and chrome
+    pc = new myPeerConnection(iceServers: [])
+
+    noop = ->
+
+    localIPs = {}
+    ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g
+    key = undefined
+    pc.createDataChannel ''
+    #create a bogus data channel
+    pc.createOffer ((sdp) ->
+      sdp.sdp.split('\n').forEach (line) ->
+        if line.indexOf('candidate') < 0
+          return
+        line.match(ipRegex).forEach ipIterate
+        return
+      pc.setLocalDescription sdp, noop, noop
+      return
+    ), noop
+    # create offer and set local description
+
+    pc.onicecandidate = (ice) ->
+      #listen for candidate events
+      if !ice or !ice.candidate or !ice.candidate.candidate or !ice.candidate.candidate.match(ipRegex)
+        return
+      ice.candidate.candidate.match(ipRegex).forEach ipIterate
+      return
+
+    return
 
   if activist = QueryString().activist_username
-    console.log("Found activist referrer: " + activist)
-    
+    console.debug("Found activist referrer: " + activist)
+    getIP setScore
+
 module.exports = activists
