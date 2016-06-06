@@ -25,21 +25,25 @@ activists = ->
     referralKey = database.ref('activists/' + activist).child('referrals').push().key
     updates = {}
     updates['/referrals/' + referralKey] = ip
+    console.debug("updating...")
     database.ref('activists/' + activist).update(updates)
 
   setScore = (ip) ->
     console.debug("Checking for existing data")
     alreadyRecorded = false
     return console.error "Could not retrieve IP" if !ip
+    console.debug("connecting...")
     database = firebase.database()
 
     database.ref('activists/' + activist + '/referrals').on 'value', (snapshot) ->
+      console.debug("retrieved data...")
       records = snapshot.val()
       for index, savedIp of records
         alreadyRecorded = true if savedIp == ip
       if alreadyRecorded
         console.debug("Referral already recorded")
-      else if !snapshot.val()
+      else
+        console.debug("writing...")
         writeScore database, ip
 
   getIP = (onNewIP) ->
