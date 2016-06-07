@@ -302,6 +302,10 @@
       {
         "title": "Make something vegan tonight",
         "href": "http://www.vegan.fm"
+      },
+      {
+        "title": "Download our activism tool",
+        "href": "http://activists.vegankit.com"
       }
     ],
     "videos": [
@@ -377,7 +381,9 @@
     "read-about-michaels": "Read about Michael's will to live after arriving at Peaceful Prairie Sanctuary.",
     "lucas-the-pig": "Lucas the Pig",
     "read-about-lucass-un": "Read about Lucas's unrequited love.",
-    "find-recipes": "Find Recipes"
+    "find-recipes": "Find Recipes",
+    "download_activism": "Educate others with our blog/website add-on",
+    "want_to_educate": "We hear so many new vegans say their only regret is not going vegan sooner. You can help us educate others about veganism. "
   },
   "eat": {
     "recommended_products": [
